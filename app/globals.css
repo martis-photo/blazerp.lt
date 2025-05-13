@@ -1,0 +1,203 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 346.8 77.2% 49.8%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 346.8 77.2% 49.8%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 20 14.3% 4.1%;
+    --foreground: 0 0% 95%;
+    --card: 24 9.8% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 346.8 77.2% 49.8%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 12 6.5% 15.1%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 346.8 77.2% 49.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(239, 68, 68, 0.5);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(239, 68, 68, 0.7);
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 8px rgba(239, 68, 68, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes flame-flicker {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgba(239, 68, 68, 0.5));
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.7));
+    transform: scale(1.05) rotate(1deg);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.6));
+    transform: scale(0.95) rotate(-1deg);
+  }
+  75% {
+    filter: drop-shadow(0 0 7px rgba(239, 68, 68, 0.5));
+    transform: scale(1.02) rotate(0.5deg);
+  }
+}
+
+.text-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.scale-animation {
+  animation: scale-up 3s ease-in-out infinite;
+}
+
+.flame-animation {
+  animation: flame-flicker 3s ease-in-out infinite;
+}
+
+.car-hover-effect {
+  transition: all 0.3s ease;
+}
+
+.car-hover-effect:hover {
+  transform: translateY(-5px) rotate(2deg);
+  filter: drop-shadow(0 10px 8px rgba(239, 68, 68, 0.2));
+}
+
+.button-animation {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.button-animation::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.button-animation:hover::after {
+  left: 100%;
+}
+
+.button-animation:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(239, 68, 68, 0.3), 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button-animation:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px rgba(239, 68, 68, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Center alignment fixes */
+.center-container {
+  @apply mx-auto max-w-7xl w-full px-4 sm:px-6 lg:px-8;
+}
+
+.center-content {
+  @apply mx-auto;
+}
+
+.center-text {
+  @apply text-center;
+}

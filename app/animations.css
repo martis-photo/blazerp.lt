@@ -1,0 +1,133 @@
+@keyframes pulse-glow {
+  0%,
+  100% {
+    text-shadow: 0 0 8px rgba(239, 68, 68, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes scale-up {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes flame-flicker {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 5px rgba(239, 68, 68, 0.5));
+    transform: scale(1) rotate(0deg);
+  }
+  25% {
+    filter: drop-shadow(0 0 8px rgba(239, 68, 68, 0.7));
+    transform: scale(1.05) rotate(1deg);
+  }
+  50% {
+    filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.6));
+    transform: scale(0.95) rotate(-1deg);
+  }
+  75% {
+    filter: drop-shadow(0 0 7px rgba(239, 68, 68, 0.5));
+    transform: scale(1.02) rotate(0.5deg);
+  }
+}
+
+.text-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+.scale-animation {
+  animation: scale-up 3s ease-in-out infinite;
+}
+
+.flame-animation {
+  animation: flame-flicker 3s ease-in-out infinite;
+}
+
+.car-hover-effect {
+  transition: all 0.3s ease;
+}
+
+.car-hover-effect:hover {
+  transform: translateY(-5px) rotate(2deg);
+  filter: drop-shadow(0 10px 8px rgba(239, 68, 68, 0.2));
+}
+
+.button-animation {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.button-animation::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.button-animation:hover::after {
+  left: 100%;
+}
+
+.button-animation:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(239, 68, 68, 0.3), 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.button-animation:active {
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px rgba(239, 68, 68, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.parallax-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.parallax-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 25px -5px rgba(239, 68, 68, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+}
+
+.parallax-container {
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.parallax-content {
+  will-change: transform;
+}
+
+.parallax-deep {
+  transform-style: preserve-3d;
+}
+
+.parallax-item {
+  backface-visibility: hidden;
+}
